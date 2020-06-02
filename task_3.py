@@ -8,7 +8,7 @@ def check_port(ip, port):
     s.settimeout(0.01)
     try:
         with closing(s.connect((ip, port))):
-            print(port, "is open")
+            print(port)
     except:
         pass
 
