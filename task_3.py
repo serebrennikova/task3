@@ -4,7 +4,7 @@ import threading
 
 
 def parser_file(file):
-    global start, end
+    global start, end, content
     with open(file) as f:
         content = f.read()
     content = content.split("\n")
@@ -26,7 +26,8 @@ if __name__ == "__main__":
     start = 0
     end = 0
     parser_file("range.txt")
-    ip = "localhost"
+    with open("ip.txt") as f:
+        ip = f.read()
     for i in range(start, end):
         thread = threading.Thread(target=check_port, args=(ip, i))
         thread.start()
